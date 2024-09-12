@@ -17,6 +17,9 @@ const DARK_THEME: Theme = {
   dark: true,
   colors: NAV_THEME.dark,
 };
+const defaultScreenOptions = {
+  headerShown: false,
+};
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -62,7 +65,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-      <Stack />
+      <Stack screenOptions={defaultScreenOptions} />
     </ThemeProvider>
   );
 }

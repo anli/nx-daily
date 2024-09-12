@@ -115,7 +115,25 @@
         "no-shadow": "off",
         "no-undef": "off",
         "@typescript-eslint/no-shadow": "error",
-        "react-hooks/exhaustive-deps": "error"
+        "react-hooks/exhaustive-deps": "error",
+        "react-native/no-raw-text": [
+          "error",
+          {
+            "skip": [
+              "BlockQuote",
+              "Code",
+              "H1",
+              "H2",
+              "H3",
+              "H4",
+              "Large",
+              "Lead",
+              "Muted",
+              "P",
+              "Small"
+            ]
+          }
+        ]
       }
     },
     {

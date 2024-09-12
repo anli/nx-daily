@@ -11,6 +11,7 @@
     "@expo/metro-config": "~0.18.1",
     "@expo/metro-runtime": "~3.2.1",
     "@react-native-async-storage/async-storage": "1.23.1",
+    "@rn-primitives/separator": "^1.0.4",
     "@rn-primitives/slot": "^1.0.4",
     "@rn-primitives/types": "^1.0.4",
     "class-variance-authority": "^0.7.0",
