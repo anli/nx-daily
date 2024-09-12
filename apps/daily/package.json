@@ -11,12 +11,36 @@
     "react-native-svg": "*",
     "react-native-web": "*",
     "react": "*",
-    "expo-build-properties": "*"
+    "expo-build-properties": "*",
+    "jest-expo": "*",
+    "@nx/devkit": "*",
+    "@nx/eslint": "*",
+    "@nx/jest": "*",
+    "@nx/js": "*",
+    "@nx/react": "*",
+    "@nx/web": "*",
+    "@nx/webpack": "*",
+    "chalk": "*",
+    "enhanced-resolve": "*",
+    "fs-extra": "*",
+    "metro-resolver": "*",
+    "node-fetch": "*",
+    "tsconfig-paths": "*",
+    "tslib": "*",
+    "@expo/metro-config": "*",
+    "react-native-svg-transformer": "*",
+    "expo-router": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
+    "expo-linking": "*",
+    "expo-constants": "*",
+    "expo-status-bar": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",
     "android": "expo run:android",
     "ios": "expo run:ios"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "main": "index.js"
 }
