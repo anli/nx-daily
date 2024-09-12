@@ -34,7 +34,12 @@
     "react-native-screens": "*",
     "expo-linking": "*",
     "expo-constants": "*",
-    "expo-status-bar": "*"
+    "expo-status-bar": "*",
+    "nativewind@^4.0.1": "*",
+    "react-native-reanimated": "*",
+    "tailwindcss": "*",
+    "nativewind": "*",
+    "expo-system-ui": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",

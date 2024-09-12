@@ -1,3 +1,7 @@
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
-export default () => <Text>Home page</Text>;
+export default () => (
+  <View className="flex-1 items-center justify-center">
+    <Text className="text-red-500">Home page</Text>
+  </View>
+);
