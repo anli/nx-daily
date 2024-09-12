@@ -14,5 +14,8 @@
       "files": ["*.js", "*.jsx"],
       "rules": {}
     }
-  ]
+  ],
+  "parserOptions": {
+    "project": ["apps/daily/tsconfig.*?.json"]
+  }
 }
