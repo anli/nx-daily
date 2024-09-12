@@ -10,7 +10,8 @@
     "expo": "*",
     "react-native-svg": "*",
     "react-native-web": "*",
-    "react": "*"
+    "react": "*",
+    "expo-build-properties": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",

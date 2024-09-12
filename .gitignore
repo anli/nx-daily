@@ -59,3 +59,4 @@ android/
 ios/
 *.tar.gz
 *.apk
+*.app
