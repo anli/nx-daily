@@ -39,7 +39,11 @@
     "react-native-reanimated": "*",
     "tailwindcss": "*",
     "nativewind": "*",
-    "expo-system-ui": "*"
+    "expo-system-ui": "*",
+    "@react-native-async-storage/async-storage": "*",
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "tailwind-merge": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",
