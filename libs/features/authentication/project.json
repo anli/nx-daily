@@ -1,0 +1,19 @@
+{
+  "name": "features-authentication",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/features/authentication/src",
+  "projectType": "library",
+  "tags": ["type:features"],
+  "// targets": "to see all targets run: nx show project features-authentication --web",
+  "targets": {
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/features/authentication",
+        "commands": ["tsc -p tsconfig.lib.json --noEmit"],
+        "forwardAllArgs": false,
+        "description": "Type check with tsc"
+      }
+    }
+  }
+}

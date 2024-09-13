@@ -1,0 +1,19 @@
+{
+  "name": "widgets-authentication",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/widgets/authentication/src",
+  "projectType": "library",
+  "tags": ["type:widgets"],
+  "// targets": "to see all targets run: nx show project widgets-authentication --web",
+  "targets": {
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/widgets/authentication",
+        "commands": ["tsc -p tsconfig.lib.json --noEmit"],
+        "forwardAllArgs": false,
+        "description": "Type check with tsc"
+      }
+    }
+  }
+}

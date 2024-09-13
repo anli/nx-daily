@@ -43,7 +43,15 @@
     "@react-native-async-storage/async-storage": "*",
     "class-variance-authority": "*",
     "clsx": "*",
-    "tailwind-merge": "*"
+    "tailwind-merge": "*",
+    "@react-navigation/native": "*",
+    "@rn-primitives/label": "*",
+    "@rn-primitives/separator": "*",
+    "@rn-primitives/slot": "*",
+    "@rn-primitives/types": "*",
+    "react-hook-form": "*",
+    "@hookform/resolvers": "*",
+    "yup": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",

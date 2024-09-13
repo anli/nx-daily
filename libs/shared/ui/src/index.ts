@@ -6,3 +6,5 @@ export * from './ui/typography';
 export * from './ui/input';
 export * from './ui/separator';
 export * from './ui/safe-area-view';
+export * from './ui/label';
+export * from './lib/utils';
