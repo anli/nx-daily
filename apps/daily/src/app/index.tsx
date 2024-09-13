@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
-import { Button, H3, Input, Muted, Text } from '@shared/ui';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Button, H3, Input, Muted, SafeAreaView, Text } from '@shared/ui';
 
 export default () => {
   const [value, setValue] = useState('');
@@ -12,7 +11,7 @@ export default () => {
   };
 
   return (
-    <SafeAreaView edges={['top']} style={styles.page}>
+    <SafeAreaView edges={['top']}>
       <View className="px-8 flex-row justify-end">
         <Button className="" variant="ghost">
           <Text>Login</Text>
@@ -48,9 +47,3 @@ export default () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-  },
-});

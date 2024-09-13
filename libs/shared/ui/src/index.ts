@@ -5,3 +5,4 @@ export * from './ui/text';
 export * from './ui/typography';
 export * from './ui/input';
 export * from './ui/separator';
+export * from './ui/safe-area-view';
