@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, Text as RNText } from 'react-native';
+import { Platform, Text as RNText, type TextProps } from 'react-native';
 
 import * as Slot from '@rn-primitives/slot';
 import { SlottableTextProps, TextRef } from '@rn-primitives/types';
@@ -212,4 +212,23 @@ const Muted = React.forwardRef<TextRef, SlottableTextProps>(
 
 Muted.displayName = 'Muted';
 
-export { BlockQuote, Code, H1, H2, H3, H4, Large, Lead, Muted, P, Small };
+const ErrorMessage = ({ children, className, ...rest }: TextProps) => (
+  <Muted className={cn('text-destructive mx-4 mt-1', className)} {...rest}>
+    {children}
+  </Muted>
+);
+
+export {
+  BlockQuote,
+  Code,
+  H1,
+  H2,
+  H3,
+  H4,
+  Large,
+  Lead,
+  Muted,
+  P,
+  Small,
+  ErrorMessage,
+};

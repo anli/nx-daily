@@ -51,7 +51,10 @@
     "@rn-primitives/types": "*",
     "react-hook-form": "*",
     "@hookform/resolvers": "*",
-    "yup": "*"
+    "yup": "*",
+    "@supabase/supabase-js": "*",
+    "react-native-url-polyfill": "*",
+    "tiny-invariant": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",

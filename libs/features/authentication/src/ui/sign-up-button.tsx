@@ -1,21 +1,38 @@
 import { type FC } from 'react';
+import { Alert } from 'react-native';
 
-import { type SignUpFormValues } from '@entities/authentication';
-import { Button, Text } from '@shared/ui';
+import {
+  useSignUpWithEmail,
+  type SignUpFormValues,
+} from '@entities/authentication';
+import { Button, Text, type ButtonProps } from '@shared/ui';
 import { type UseFormHandleSubmit } from 'react-hook-form';
 
 type SignUpButtonProps = {
+  title?: string;
   handleSubmit: UseFormHandleSubmit<SignUpFormValues, undefined>;
-};
+} & ButtonProps;
 
-export const SignUpButton: FC<SignUpButtonProps> = ({ handleSubmit }) => {
-  const handleLogin = (_: SignUpFormValues) => {
-    // do something
-  };
+export const SignUpButton: FC<SignUpButtonProps> = ({
+  title = 'Sign up with Email',
+  handleSubmit,
+  disabled,
+  ...rest
+}) => {
+  const { mutate: signUpWithEmail, loading } = useSignUpWithEmail({
+    onError: (error) => {
+      Alert.alert('Error', error.message);
+    },
+  });
 
   return (
-    <Button onPress={() => void handleSubmit(handleLogin)}>
-      <Text>Sign up with Email</Text>
+    <Button
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      onPress={handleSubmit(signUpWithEmail)}
+      disabled={loading || disabled}
+      {...rest}
+    >
+      <Text>{title}</Text>
     </Button>
   );
 };

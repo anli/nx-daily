@@ -10,8 +10,8 @@ type SignUpWidgetProps = Omit<SignUpFormProps, 'renderSubmitButton'>;
 
 export const SignUpWidget: FC<SignUpWidgetProps> = ({ ...rest }) => (
   <SignUpForm
-    renderSubmitButton={(handleSubmit) => (
-      <SignUpButton handleSubmit={handleSubmit} />
+    renderSubmitButton={(handleSubmit, isValid) => (
+      <SignUpButton handleSubmit={handleSubmit} disabled={!isValid} />
     )}
     SocialLoginComponent={<GoogleAuthenticationButton />}
     {...rest}

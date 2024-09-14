@@ -17,6 +17,7 @@
     "paths": {
       "@entities/authentication": ["libs/entities/authentication/src/index.ts"],
       "@features/authentication": ["libs/features/authentication/src/index.ts"],
+      "@shared/api": ["libs/shared/api/src/index.ts"],
       "@shared/ui": ["libs/shared/ui/src/index.ts"],
       "@widgets/authentication": ["libs/widgets/authentication/src/index.ts"]
     }
