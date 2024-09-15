@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
 
+import { SessionProvider } from '@entities/authentication';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Theme, ThemeProvider } from '@react-navigation/native';
 import { SupabaseProvider } from '@shared/api';
 import { NAV_THEME, useColorScheme } from '@shared/ui';
-import { SplashScreen, Stack } from 'expo-router';
+import { Slot, SplashScreen } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import invariant from 'tiny-invariant';
 
@@ -29,9 +30,6 @@ const LIGHT_THEME: Theme = {
 const DARK_THEME: Theme = {
   dark: true,
   colors: NAV_THEME.dark,
-};
-const defaultScreenOptions = {
-  headerShown: false,
 };
 
 export {
@@ -77,10 +75,12 @@ export default function RootLayout() {
 
   return (
     <SupabaseProvider url={supabaseUrl} anonKey={supabaseAnonKey}>
-      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-        <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-        <Stack screenOptions={defaultScreenOptions} />
-      </ThemeProvider>
+      <SessionProvider>
+        <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+          <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
+          <Slot />
+        </ThemeProvider>
+      </SessionProvider>
     </SupabaseProvider>
   );
 }

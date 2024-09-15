@@ -2,7 +2,7 @@ import { type FC } from 'react';
 import { View, type ViewProps } from 'react-native';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { cn, H3, Input, Label, Muted, ErrorMessage } from '@shared/ui';
+import { cn, Input, Label, Muted, ErrorMessage, H1, Lead } from '@shared/ui';
 import type { ClassValue } from 'clsx';
 import { useForm, Controller, type UseFormHandleSubmit } from 'react-hook-form';
 import * as yup from 'yup';
@@ -52,13 +52,11 @@ export const SignUpForm: FC<SignUpFormProps> = ({
   return (
     <View className={className ? cn('w-full', className) : 'w-full'} {...rest}>
       <View>
-        <View className="gap-2">
-          <H3 className="text-center">{title}</H3>
-          <View className="h-2" />
-          <Muted className="text-center">{subtitle}</Muted>
-        </View>
-
+        <H1>{title}</H1>
         <View className="h-4" />
+        <Lead>{subtitle}</Lead>
+
+        <View className="h-8" />
 
         <Controller
           control={control}
@@ -108,7 +106,7 @@ export const SignUpForm: FC<SignUpFormProps> = ({
               <Label nativeID="passwordLabel">Password</Label>
               <View className="h-2" />
               <Input
-                placeholder="Enter a strong, secure password"
+                placeholder="******"
                 secureTextEntry
                 value={value}
                 onChangeText={onChange}
