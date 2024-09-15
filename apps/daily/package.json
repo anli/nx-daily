@@ -54,7 +54,8 @@
     "yup": "*",
     "@supabase/supabase-js": "*",
     "react-native-url-polyfill": "*",
-    "tiny-invariant": "*"
+    "tiny-invariant": "*",
+    "lucide-react-native": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",

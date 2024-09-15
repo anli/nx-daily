@@ -8,10 +8,10 @@ import {
 
 export const SafeAreaView: FC<PropsWithChildren<SafeAreaViewProps>> = ({
   children,
-  style,
+  className,
   ...rest
 }) => (
-  <NativeSafeAreaView {...rest} style={[styles.page, style]}>
+  <NativeSafeAreaView {...rest} style={styles.page}>
     {children}
   </NativeSafeAreaView>
 );

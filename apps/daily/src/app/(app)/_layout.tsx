@@ -1,16 +1,24 @@
+import { useEffect } from 'react';
+
 import { useSession } from '@entities/authentication';
-import { Text } from '@shared/ui';
-import { Redirect, Stack } from 'expo-router';
+import { useTheme } from '@entities/theme';
+import { Redirect, SplashScreen, Stack } from 'expo-router';
 
 const defaultScreenOptions = {
   headerShown: false,
 };
 
 export default function AppLayout() {
-  const { data: session, isLoading } = useSession();
+  const { data: session, isLoading: isSessionLoading } = useSession();
+  const { isLoading: isThemeLoading } = useTheme();
+  const isLoading = isSessionLoading || isThemeLoading;
+
+  useEffect(() => {
+    !isLoading && void SplashScreen.hideAsync();
+  }, [isLoading]);
 
   if (isLoading) {
-    return <Text>Loading...</Text>;
+    return null;
   }
 
   if (!session) {
