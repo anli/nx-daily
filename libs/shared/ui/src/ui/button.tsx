@@ -1,3 +1,6 @@
+/* eslint-disable tailwindcss/no-custom-classname */
+/* eslint-disable tailwindcss/enforces-shorthand */
+/* eslint-disable tailwindcss/classnames-order */
 import * as React from 'react';
 import { Pressable } from 'react-native';
 
