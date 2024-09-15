@@ -8,13 +8,15 @@ import {
   type PropsWithChildren,
 } from 'react';
 
-import { useSupabase } from '@shared/api';
+import { supabase } from '@shared/api';
 import type { Session } from '@supabase/supabase-js';
 
 const SessionContext = createContext<{
   data?: Session | null;
+  isLoading: boolean;
 }>({
   data: undefined,
+  isLoading: true,
 });
 
 export const useSession = () => {
@@ -30,23 +32,28 @@ export const useSession = () => {
 
 export const SessionProvider: FC<PropsWithChildren> = ({ children }) => {
   const [data, setData] = useState<Session | null | undefined>(undefined);
-  const { client } = useSupabase();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    void client?.auth.getSession().then(({ data: { session: _session } }) => {
+    void supabase.auth.getSession().then(({ data: { session: _session } }) => {
+      setIsLoading(true);
       setData(_session);
+      setIsLoading(false);
     });
 
-    client?.auth.onAuthStateChange((_event, _session) => {
+    supabase.auth.onAuthStateChange((_event, _session) => {
+      setIsLoading(true);
       setData(_session);
+      setIsLoading(false);
     });
-  }, [client?.auth]);
+  }, []);
 
   const value = useMemo(
     () => ({
       data,
+      isLoading,
     }),
-    [data]
+    [data, isLoading]
   );
 
   return (

@@ -1,13 +1,12 @@
 import { useState } from 'react';
 
-import { useSupabase } from '@shared/api';
+import { supabase } from '@shared/api';
 import type {
   AuthError,
   Session,
   SignUpWithPasswordCredentials,
   User,
 } from '@supabase/supabase-js';
-import invariant from 'tiny-invariant';
 
 type UseSignUpWithEmailProps = {
   onError?: (error: AuthError) => void;
@@ -19,13 +18,10 @@ export const useSignUpWithEmail = ({
   onSuccess,
 }: UseSignUpWithEmailProps = {}) => {
   const [loading, setLoading] = useState(false);
-  const { client } = useSupabase();
 
   const mutateAsync = async (values: SignUpWithPasswordCredentials) => {
-    invariant(client, 'useSupabase.client is not initialized');
-
     setLoading(true);
-    const response = await client?.auth.signUp(values);
+    const response = await supabase.auth.signUp(values);
     setLoading(false);
     if (response?.error) {
       return onError?.(response?.error);

@@ -1,11 +1,10 @@
 import { View } from 'react-native';
 
 import { useSession } from '@entities/authentication';
-import { useSupabase } from '@shared/api';
-import { Button, H1, Lead, SafeAreaView, Text } from '@shared/ui';
+import { LogoutButton } from '@features/authentication';
+import { H1, Lead, SafeAreaView } from '@shared/ui';
 
 export default function Index() {
-  const { client } = useSupabase();
   const { data } = useSession();
 
   return (
@@ -17,13 +16,7 @@ export default function Index() {
 
       <View className="h-4" />
       <View className="px-8">
-        <Button
-          onPress={() => {
-            void client?.auth.signOut();
-          }}
-        >
-          <Text>Sign Out</Text>
-        </Button>
+        <LogoutButton />
       </View>
     </SafeAreaView>
   );

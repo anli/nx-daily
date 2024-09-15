@@ -4,24 +4,11 @@ import { Platform } from 'react-native';
 import { SessionProvider } from '@entities/authentication';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Theme, ThemeProvider } from '@react-navigation/native';
-import { SupabaseProvider } from '@shared/api';
 import { NAV_THEME, useColorScheme } from '@shared/ui';
 import { Slot, SplashScreen } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import invariant from 'tiny-invariant';
 
 import '../../global.css';
-
-invariant(
-  process.env.EXPO_PUBLIC_SUPABASE_URL,
-  'EXPO_PUBLIC_SUPABASE_URL is not set'
-);
-invariant(
-  process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
-  'EXPO_PUBLIC_SUPABASE_ANON_KEY is not set'
-);
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
 
 const LIGHT_THEME: Theme = {
   dark: false,
@@ -74,13 +61,11 @@ export default function RootLayout() {
   }
 
   return (
-    <SupabaseProvider url={supabaseUrl} anonKey={supabaseAnonKey}>
-      <SessionProvider>
-        <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-          <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-          <Slot />
-        </ThemeProvider>
-      </SessionProvider>
-    </SupabaseProvider>
+    <SessionProvider>
+      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+        <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
+        <Slot />
+      </ThemeProvider>
+    </SessionProvider>
   );
 }

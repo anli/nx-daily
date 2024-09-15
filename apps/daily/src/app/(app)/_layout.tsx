@@ -1,4 +1,5 @@
 import { useSession } from '@entities/authentication';
+import { Text } from '@shared/ui';
 import { Redirect, Stack } from 'expo-router';
 
 const defaultScreenOptions = {
@@ -6,7 +7,11 @@ const defaultScreenOptions = {
 };
 
 export default function AppLayout() {
-  const { data: session } = useSession();
+  const { data: session, isLoading } = useSession();
+
+  if (isLoading) {
+    return <Text>Loading...</Text>;
+  }
 
   if (!session) {
     return <Redirect href="/on-boarding" />;
