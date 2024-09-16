@@ -55,7 +55,10 @@
     "@supabase/supabase-js": "*",
     "react-native-url-polyfill": "*",
     "tiny-invariant": "*",
-    "lucide-react-native": "*"
+    "lucide-react-native": "*",
+    "@react-navigation/stack": "*",
+    "react-native-gesture-handler": "*",
+    "expo-navigation-bar": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",

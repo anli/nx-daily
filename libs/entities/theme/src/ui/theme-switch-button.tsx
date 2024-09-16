@@ -8,14 +8,12 @@ export const ThemeSwitchButton: FC<ButtonProps> = ({ ...rest }) => {
   const { data: theme, toggleColorScheme } = useTheme();
 
   return (
-    <Button
-      className="self-end"
-      size="icon"
-      variant="ghost"
-      onPress={toggleColorScheme}
-      {...rest}
-    >
-      {theme?.colorScheme === 'dark' ? <MoonStar /> : <Sun />}
+    <Button size="icon" variant="ghost" onPress={toggleColorScheme} {...rest}>
+      {theme?.colorScheme === 'dark' ? (
+        <MoonStar className="text-accent-foreground" />
+      ) : (
+        <Sun className="text-accent-foreground" />
+      )}
     </Button>
   );
 };

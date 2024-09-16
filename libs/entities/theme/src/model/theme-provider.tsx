@@ -14,7 +14,7 @@ import {
   Theme as NavigationTheme,
   ThemeProvider as NavigationThemeProvider,
 } from '@react-navigation/native';
-import { NAV_THEME, useColorScheme } from '@shared/ui';
+import { NAV_THEME, setAndroidNavigationBar, useColorScheme } from '@shared/ui';
 import { StatusBar } from 'expo-status-bar';
 
 const LIGHT_THEME: NavigationTheme = {
@@ -66,6 +66,7 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
       const colorTheme = theme === 'dark' ? 'dark' : 'light';
       if (colorTheme !== colorScheme) {
         setColorScheme(colorTheme);
+        void setAndroidNavigationBar(colorTheme);
 
         setIsLoading(false);
         return;
@@ -74,7 +75,8 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
     })().finally(() => {
       setIsLoading(false);
     });
-  }, [colorScheme, setColorScheme]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -85,6 +87,7 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
         const newTheme = isDarkColorScheme ? 'light' : 'dark';
         await AsyncStorage.setItem('theme', newTheme);
         setColorScheme(newTheme);
+        await setAndroidNavigationBar(newTheme);
       },
     }),
     [colorScheme, isDarkColorScheme, isLoading, setColorScheme]

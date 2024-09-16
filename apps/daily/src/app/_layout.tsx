@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import { SessionProvider } from '@entities/authentication';
 import { ThemeProvider } from '@entities/theme';
-import { Stack, SplashScreen } from 'expo-router';
+import { JsStack } from '@shared/ui';
+import { SplashScreen } from 'expo-router';
 
 import '../../global.css';
 
@@ -23,7 +24,7 @@ export default function RootLayout() {
   return (
     <SessionProvider>
       <ThemeProvider>
-        <Stack screenOptions={defaultScreenOptions} />
+        <JsStack screenOptions={defaultScreenOptions} />
       </ThemeProvider>
     </SessionProvider>
   );

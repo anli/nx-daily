@@ -1,19 +1,18 @@
 import { View } from 'react-native';
 
 import { ThemeSwitchButton } from '@entities/theme';
-import { Button, H1, Lead, SafeAreaView, Text } from '@shared/ui';
+import { Button, H1, JsStack, Lead, SafeAreaView, Text } from '@shared/ui';
 import { Link } from 'expo-router';
-import { Stack } from 'expo-router';
 
 export default function OnBoarding() {
   return (
     <>
-      <Stack.Screen
+      <JsStack.Screen
         options={{
           headerShown: true,
           headerBackTitleVisible: false,
           headerTitle: '',
-          headerRight: () => <ThemeSwitchButton />,
+          headerRight: () => <ThemeSwitchButton className="mr-4" />,
           headerShadowVisible: false,
         }}
       />

@@ -13,7 +13,7 @@ export default function Login() {
           headerShown: true,
           headerBackTitleVisible: false,
           headerTitle: '',
-          headerRight: () => <ThemeSwitchButton />,
+          headerRight: () => <ThemeSwitchButton className="mr-4" />,
           headerShadowVisible: false,
         }}
       />

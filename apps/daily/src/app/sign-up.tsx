@@ -14,7 +14,7 @@ export default function SignUp() {
           headerShown: true,
           headerBackTitleVisible: false,
           headerTitle: '',
-          headerRight: () => <ThemeSwitchButton />,
+          headerRight: () => <ThemeSwitchButton className="mr-4" />,
           headerShadowVisible: false,
         }}
       />
