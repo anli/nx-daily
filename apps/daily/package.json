@@ -58,7 +58,9 @@
     "lucide-react-native": "*",
     "@react-navigation/stack": "*",
     "react-native-gesture-handler": "*",
-    "expo-navigation-bar": "*"
+    "expo-navigation-bar": "*",
+    "@expo/vector-icons": "*",
+    "expo-application": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily",

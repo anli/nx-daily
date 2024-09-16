@@ -25,5 +25,9 @@ export default function AppLayout() {
     return <Redirect href="/on-boarding" />;
   }
 
-  return <Stack screenOptions={defaultScreenOptions} />;
+  return (
+    <Stack>
+      <Stack.Screen name="(tabs)" options={defaultScreenOptions} />
+    </Stack>
+  );
 }
